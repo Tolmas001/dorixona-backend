@@ -1,0 +1,216 @@
+/* Anatomy Viewer Styles */
+
+.anatomy-viewer {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  padding: 20px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  min-height: 600px;
+  animation: slideInUp 0.3s ease;
+}
+
+.anatomy-container {
+  width: 100%;
+  height: 600px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #f5f9f7, #eef6f2);
+  border: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 4px 12px rgba(10, 67, 46, 0.05);
+}
+
+.anatomy-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+.anatomy-info {
+  display: grid;
+  gap: 16px;
+  padding: 20px;
+  background: #fafcfb;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.anatomy-info h3 {
+  margin: 0;
+  color: var(--primary);
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.anatomy-info p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.anatomy-medicines {
+  display: grid;
+  gap: 12px;
+}
+
+.anatomy-medicines h4 {
+  margin: 0;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.medicines-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.medicine-card-small {
+  padding: 12px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  animation: slideInUp 0.3s ease;
+}
+
+.medicine-card-small:hover {
+  border-color: var(--primary);
+  box-shadow: 0 4px 12px rgba(0, 109, 67, 0.1);
+  transform: translateY(-2px);
+}
+
+.medicine-card-small strong {
+  display: block;
+  color: var(--text);
+  font-size: 13px;
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.medicine-card-small p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+  margin-bottom: 6px;
+}
+
+.medicine-card-small .price {
+  display: block;
+  color: var(--primary);
+  font-weight: 900;
+  font-size: 14px;
+}
+
+/* Interactive indicators */
+.anatomy-container:hover {
+  box-shadow: inset 0 4px 12px rgba(10, 67, 46, 0.1);
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .anatomy-viewer {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .anatomy-container {
+    height: 400px;
+  }
+
+  .anatomy-info {
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .anatomy-viewer {
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .anatomy-container {
+    height: 350px;
+    border-radius: 14px;
+  }
+
+  .anatomy-info {
+    padding: 16px;
+    border-radius: 14px;
+    max-height: 250px;
+  }
+
+  .anatomy-info h3 {
+    font-size: 16px;
+  }
+
+  .medicine-card-small {
+    padding: 10px;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .anatomy-viewer {
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .anatomy-container {
+    height: 280px;
+    border-radius: 12px;
+  }
+
+  .anatomy-info {
+    padding: 12px;
+    border-radius: 12px;
+    max-height: 200px;
+  }
+
+  .anatomy-info h3 {
+    font-size: 14px;
+  }
+
+  .medicine-card-small {
+    padding: 8px;
+    font-size: 12px;
+  }
+}
+
+/* Three.js canvas optimization */
+.anatomy-container canvas {
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: none;
+}
+
+/* Loading state */
+.anatomy-container.loading {
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+}
+
+.anatomy-container.loading::after {
+  content: 'Anatomiya yuklanmoqda...';
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+
+  .anatomy-viewer,
+  .medicine-card-small,
+  .anatomy-container {
+    animation: none !important;
+    transition: none !important;
+  }
+}

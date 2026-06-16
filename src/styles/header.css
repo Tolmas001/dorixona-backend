@@ -1,0 +1,151 @@
+/* Organized responsive header */
+.top-header {
+  display: grid;
+  grid-template-columns: auto minmax(260px, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+}
+.brand-button {
+  min-width: 168px;
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+.header-search {
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+}
+.desktop-nav {
+  margin-left: 0;
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+.header-actions {
+  margin-left: 0;
+  justify-content: end;
+  min-width: 0;
+  white-space: nowrap;
+}
+.header-actions .btn {
+  min-width: 46px;
+  height: 46px;
+  padding: 0 13px;
+  flex: 0 0 auto;
+}
+.header-actions .icon-action {
+  width: 46px;
+  padding: 0;
+  border-radius: 15px;
+}
+.cart-button b {
+  min-width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--primary);
+  color: white;
+  font-size: 12px;
+}
+.avatar-trigger {
+  max-width: 180px;
+}
+.avatar-trigger b {
+  max-width: 112px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 1340px) {
+  .top-header {
+    grid-template-columns: auto minmax(240px, 1fr) auto;
+  }
+  .desktop-nav { display: none; }
+}
+
+@media (max-width: 1080px) {
+  .top-header {
+    grid-template-columns: auto minmax(220px, 1fr) auto;
+    gap: 10px;
+  }
+  .category-button span,
+  .cart-button span {
+    display: none;
+  }
+  .category-button {
+    width: 46px;
+    padding: 0;
+  }
+  .avatar-trigger b {
+    display: none;
+  }
+  .avatar-trigger {
+    width: 46px;
+    padding: 0;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 820px) {
+  .top-header {
+    grid-template-columns: 44px minmax(0, 1fr) auto;
+  }
+  .top-header.no-menu {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  .brand-button {
+    min-width: 0;
+  }
+  .header-actions {
+    gap: 6px;
+  }
+  .header-actions .category-button,
+  .header-actions .icon-action:first-of-type {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .modal-backdrop {
+    align-items: start;
+    padding: 10px;
+  }
+  .profile-modal {
+    width: 100%;
+    max-height: calc(100dvh - 20px);
+    padding: 18px;
+    border-radius: 22px;
+  }
+  .profile-modal .row-actions {
+    position: sticky;
+    bottom: -18px;
+    margin: 4px -18px -18px;
+    padding: 12px 18px 18px;
+    background: inherit;
+    border-top: 1px solid rgba(26,138,110,.12);
+  }
+  .top-header {
+    grid-template-columns: 42px 1fr auto;
+  }
+  .top-header.no-menu {
+    grid-template-columns: 1fr auto;
+  }
+  .brand-button strong {
+    display: none;
+  }
+  .brand-button {
+    justify-content: center;
+  }
+  .header-actions .icon-action:nth-of-type(2),
+  .notice-wrap {
+    display: none;
+  }
+  .header-actions .btn {
+    width: 42px;
+    min-width: 42px;
+    height: 42px;
+    padding: 0;
+  }
+}
+

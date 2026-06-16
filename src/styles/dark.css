@@ -1,0 +1,386 @@
+/* Premium healthcare dark mode */
+.app,
+.app * {
+  transition:
+    background-color 240ms ease,
+    border-color 240ms ease,
+    box-shadow 240ms ease,
+    color 180ms ease,
+    transform 220ms ease;
+}
+
+.app.dark {
+  --dark-bg: #0f172a;
+  --dark-bg-2: #111827;
+  --dark-card: #1e293b;
+  --dark-border: #334155;
+  --dark-green: #22c55e;
+  --dark-green-2: #16a34a;
+  --dark-blue: #3b82f6;
+  --dark-text: #f8fafc;
+  --dark-muted: #cbd5e1;
+  --dark-error: #ef4444;
+  --dark-warning: #f59e0b;
+  --surface: rgba(30, 41, 59, .92);
+  --soft: rgba(17, 24, 39, .92);
+  --line: rgba(51, 65, 85, .95);
+  --text: var(--dark-text);
+  --muted: var(--dark-muted);
+  color: var(--dark-text);
+  background:
+    radial-gradient(circle at 7% -8%, rgba(34, 197, 94, .18), transparent 28rem),
+    radial-gradient(circle at 93% 4%, rgba(59, 130, 246, .16), transparent 30rem),
+    linear-gradient(180deg, #0f172a 0%, #111827 54%, #0f172a 100%);
+}
+
+.app.dark::selection {
+  color: #052e16;
+  background: rgba(34, 197, 94, .78);
+}
+
+.app.dark .top-header {
+  background: rgba(17, 24, 39, .78);
+  border: 1px solid rgba(51, 65, 85, .9);
+  box-shadow: 0 22px 60px rgba(2, 6, 23, .42);
+  backdrop-filter: blur(22px);
+}
+
+.app.dark .brand-button,
+.app.dark .menu-button,
+.app.dark .category-button,
+.app.dark .voice-button,
+.app.dark .icon-action,
+.app.dark .avatar-trigger {
+  color: var(--dark-text);
+  background: rgba(30, 41, 59, .74);
+  border-color: rgba(51, 65, 85, .9);
+}
+
+.app.dark .brand-button:hover,
+.app.dark .menu-button:hover,
+.app.dark .category-button:hover,
+.app.dark .voice-button:hover,
+.app.dark .icon-action:hover,
+.app.dark .avatar-trigger:hover {
+  color: #dcfce7;
+  border-color: rgba(34, 197, 94, .55);
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, .08), 0 16px 35px rgba(2, 6, 23, .28);
+}
+
+.app.dark .brand-icon,
+.app.dark .avatar {
+  background: linear-gradient(135deg, var(--dark-green), var(--dark-blue));
+  box-shadow: 0 14px 35px rgba(34, 197, 94, .22);
+}
+
+.app.dark .header-search,
+.app.dark .orders-search,
+.app.dark .search input,
+.app.dark input,
+.app.dark select,
+.app.dark textarea {
+  color: var(--dark-text);
+  background: rgba(15, 23, 42, .86);
+  border-color: rgba(51, 65, 85, .98);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .03);
+}
+
+.app.dark .header-search input,
+.app.dark .orders-search input,
+.app.dark .search input {
+  color: var(--dark-text);
+}
+
+.app.dark .header-search:focus-within,
+.app.dark .orders-search:focus-within,
+.app.dark input:focus,
+.app.dark select:focus,
+.app.dark textarea:focus {
+  border-color: rgba(34, 197, 94, .8);
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, .12), 0 18px 38px rgba(2, 6, 23, .22);
+  outline: none;
+}
+
+.app.dark input::placeholder,
+.app.dark textarea::placeholder,
+.app.dark .header-search input::placeholder,
+.app.dark .orders-search input::placeholder {
+  color: rgba(203, 213, 225, .68);
+}
+
+.app.dark .header-popover,
+.app.dark .modal-backdrop {
+  border-color: rgba(51, 65, 85, .9);
+}
+
+.app.dark .header-popover {
+  color: var(--dark-text);
+  background: rgba(15, 23, 42, .94);
+  box-shadow: 0 24px 70px rgba(2, 6, 23, .52);
+  backdrop-filter: blur(20px);
+}
+
+.app.dark .modal-backdrop {
+  background: rgba(2, 6, 23, .72);
+  backdrop-filter: blur(10px);
+}
+
+.app.dark .sidebar {
+  background: rgba(17, 24, 39, .92);
+  border-color: rgba(51, 65, 85, .94);
+  box-shadow: 0 24px 70px rgba(2, 6, 23, .4);
+}
+
+.app.dark .sidebar-head,
+.app.dark .sidebar > button:not(.sidebar-head button) {
+  color: var(--dark-muted);
+}
+
+.app.dark .sidebar > button.active,
+.app.dark .sidebar > button:hover {
+  color: #f8fafc;
+  background: linear-gradient(135deg, rgba(34, 197, 94, .22), rgba(59, 130, 246, .16));
+  border-color: rgba(34, 197, 94, .34);
+  box-shadow: 0 12px 28px rgba(34, 197, 94, .12);
+}
+
+.app.dark .page-title,
+.app.dark .hero,
+.app.dark .card,
+.app.dark .product-card,
+.app.dark .profile-hero,
+.app.dark .profile-section,
+.app.dark .profile-modal,
+.app.dark .prescription-preview-modal,
+.app.dark .user-info-card,
+.app.dark .orders-hero,
+.app.dark .order-premium-card,
+.app.dark .order-modal,
+.app.dark .invoice-modal,
+.app.dark .invoice-box,
+.app.dark .super-hero,
+.app.dark .catalog-ad,
+.app.dark .ad-card,
+.app.dark .command-card,
+.app.dark .report-card,
+.app.dark .sale-card,
+.app.dark .checkout-panel,
+.app.dark .detail-card,
+.app.dark .empty {
+  color: var(--dark-text);
+  background:
+    linear-gradient(180deg, rgba(30, 41, 59, .94), rgba(17, 24, 39, .92)),
+    var(--dark-card);
+  border-color: rgba(51, 65, 85, .94);
+  box-shadow: 0 20px 55px rgba(2, 6, 23, .3);
+}
+
+.app.dark .hero,
+.app.dark .orders-hero,
+.app.dark .profile-hero,
+.app.dark .super-hero {
+  background:
+    radial-gradient(circle at top right, rgba(34, 197, 94, .18), transparent 17rem),
+    radial-gradient(circle at left bottom, rgba(59, 130, 246, .12), transparent 18rem),
+    linear-gradient(135deg, rgba(30, 41, 59, .96), rgba(15, 23, 42, .96));
+}
+
+.app.dark .card:hover,
+.app.dark .product-card:hover,
+.app.dark .order-premium-card:hover,
+.app.dark .profile-section:hover,
+.app.dark .command-card:hover,
+.app.dark .report-card:hover {
+  border-color: rgba(34, 197, 94, .46);
+  box-shadow: 0 24px 65px rgba(2, 6, 23, .36), 0 0 0 1px rgba(34, 197, 94, .14);
+}
+
+.app.dark .product-card img,
+.app.dark .product-image,
+.app.dark .medicine-image,
+.app.dark .preview-image {
+  background: linear-gradient(135deg, rgba(248, 250, 252, .08), rgba(34, 197, 94, .1));
+  border-color: rgba(51, 65, 85, .8);
+}
+
+.app.dark .product-meta span,
+.app.dark .popular-tags button,
+.app.dark .desktop-nav,
+.app.dark .receipt-lines,
+.app.dark .level-grid span,
+.app.dark .table-row,
+.app.dark .orders-row,
+.app.dark .cart-row,
+.app.dark .address-card,
+.app.dark .security-item,
+.app.dark .pref-row,
+.app.dark .profile-fields p,
+.app.dark .session-row,
+.app.dark .prescription-card,
+.app.dark .prescription-preview,
+.app.dark .map-picker,
+.app.dark .order-products-preview article,
+.app.dark .delivery-panel p,
+.app.dark .order-timeline,
+.app.dark .modal-products article,
+.app.dark .detail-panels p {
+  color: var(--dark-text);
+  background: rgba(15, 23, 42, .78);
+  border-color: rgba(51, 65, 85, .88);
+}
+
+.app.dark .table-row:hover,
+.app.dark .orders-row:hover,
+.app.dark .cart-row:hover,
+.app.dark .modal-products article:hover {
+  background: rgba(30, 41, 59, .9);
+}
+
+.app.dark p,
+.app.dark small,
+.app.dark .muted,
+.app.dark .page-title p,
+.app.dark .hero p,
+.app.dark .profile-hero p,
+.app.dark .profile-fields p,
+.app.dark .address-card p,
+.app.dark .security-item span,
+.app.dark .session-row,
+.app.dark .profile-footer,
+.app.dark .order-subtitle,
+.app.dark .delivery-panel p,
+.app.dark .detail-panels p {
+  color: var(--dark-muted);
+}
+
+.app.dark h1,
+.app.dark h2,
+.app.dark h3,
+.app.dark h4,
+.app.dark strong,
+.app.dark label,
+.app.dark th {
+  color: var(--dark-text);
+}
+
+.app.dark .btn.primary,
+.app.dark button.primary {
+  color: #f8fafc;
+  background: linear-gradient(135deg, var(--dark-green), var(--dark-green-2));
+  border-color: rgba(34, 197, 94, .65);
+  box-shadow: 0 16px 34px rgba(34, 197, 94, .22);
+}
+
+.app.dark .btn.primary:hover,
+.app.dark button.primary:hover {
+  filter: brightness(1.06);
+  box-shadow: 0 18px 42px rgba(34, 197, 94, .32);
+}
+
+.app.dark .btn.secondary,
+.app.dark .btn.ghost,
+.app.dark button.secondary,
+.app.dark button.ghost {
+  color: var(--dark-text);
+  background: rgba(30, 41, 59, .82);
+  border-color: rgba(51, 65, 85, .95);
+}
+
+.app.dark .btn.secondary:hover,
+.app.dark .btn.ghost:hover,
+.app.dark button.secondary:hover,
+.app.dark button.ghost:hover {
+  border-color: rgba(34, 197, 94, .48);
+  box-shadow: 0 14px 30px rgba(2, 6, 23, .28);
+}
+
+.app.dark .btn.danger,
+.app.dark button.danger {
+  color: #fff;
+  background: linear-gradient(135deg, #ef4444, #b91c1c);
+  border-color: rgba(239, 68, 68, .7);
+}
+
+.app.dark .badge.success,
+.app.dark .status-delivered {
+  color: #bbf7d0;
+  background: rgba(34, 197, 94, .14);
+  border-color: rgba(34, 197, 94, .32);
+}
+
+.app.dark .badge.warning,
+.app.dark .status-pending {
+  color: #fde68a;
+  background: rgba(245, 158, 11, .14);
+  border-color: rgba(245, 158, 11, .34);
+}
+
+.app.dark .badge.info,
+.app.dark .status-processing {
+  color: #bfdbfe;
+  background: rgba(59, 130, 246, .14);
+  border-color: rgba(59, 130, 246, .34);
+}
+
+.app.dark .badge.danger,
+.app.dark .status-cancelled {
+  color: #fecaca;
+  background: rgba(239, 68, 68, .14);
+  border-color: rgba(239, 68, 68, .34);
+}
+
+.app.dark .badge.neutral,
+.app.dark .status-refunded,
+.app.dark .status-shipped {
+  color: var(--dark-muted);
+  background: rgba(148, 163, 184, .13);
+  border-color: rgba(148, 163, 184, .26);
+}
+
+.app.dark .toast,
+.app.dark .notice-toast {
+  color: var(--dark-text);
+  background: rgba(15, 23, 42, .96);
+  border: 1px solid rgba(34, 197, 94, .36);
+  box-shadow: 0 22px 55px rgba(2, 6, 23, .5);
+  animation: darkToastSlide 320ms ease both;
+}
+
+.app.dark .toast.error,
+.app.dark .notice-toast.error {
+  border-color: rgba(239, 68, 68, .46);
+}
+
+.app.dark .toast.warning,
+.app.dark .notice-toast.warning {
+  border-color: rgba(245, 158, 11, .46);
+}
+
+.app.dark .toast.info,
+.app.dark .notice-toast.info {
+  border-color: rgba(59, 130, 246, .46);
+}
+
+@keyframes darkToastSlide {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app,
+  .app *,
+  .app *::before,
+  .app *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .001ms !important;
+  }
+}
+
