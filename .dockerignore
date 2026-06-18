@@ -1,0 +1,17 @@
+node_modules/
+dist/
+build/
+.vscode/
+.idea/
+*.log
+.env
+.env.local
+.env.production
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+.DS_Store
+*.swp
+*.swo
+postgres_data/
+.turbo/
