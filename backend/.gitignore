@@ -1,6 +1,5 @@
 .env
 node_modules
-.prisma
 DS_Store
 dist
 public/
