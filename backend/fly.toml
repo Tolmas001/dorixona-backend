@@ -5,16 +5,7 @@ primary_region = "iad"
 dockerfile = "Dockerfile"
 
 [deploy]
-release_command = "pnpm exec prisma migrate deploy"
 healthcheck_path = "/health"
-
-  [deploy.env]
-  DATABASE_URL = "postgresql://dorixona:dorixona123@dorixona-backend-db.internal:5432/dorixona?schema=public"
-  JWT_SECRET = "Bu_xalq_uchun_qilingan_foydali_loyiha"
-  JWT_REFRESH_SECRET = "Bu_Secrec_hech_kimga_aytilmaydi"
-  COOKIE_SECRET = "Bu_Secrec_hech_kimga_aytilmaydi"
-  NODE_ENV = "production"
-  PORT = "3004"
 
 [[services]]
 internal_port = 3004
