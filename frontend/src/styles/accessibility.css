@@ -1,0 +1,301 @@
+/* Accessibility & Responsive Design */
+
+/* Focus visible for keyboard navigation */
+:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+button:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Skip to main content link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Touch target sizing (min 44x44px) */
+button,
+a,
+input[type="checkbox"],
+input[type="radio"] {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Improved form labels */
+label {
+  cursor: pointer;
+}
+
+label span {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Screen reader only text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Color contrast improvements */
+.muted-text {
+  color: var(--muted);
+}
+
+/* Tablet breakpoint (768px) */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .menu-button {
+    display: flex;
+  }
+
+  .shell {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sidebar {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 76px;
+    width: 260px;
+    height: calc(100vh - 76px);
+    z-index: 20;
+    border-radius: 0;
+    box-shadow: 4px 0 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .sidebar.open {
+    display: grid;
+  }
+
+  .top-header {
+    justify-content: space-between;
+  }
+
+  .header-search {
+    display: none;
+  }
+
+  .category-button {
+    display: none;
+  }
+
+  .ad-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-title {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .hero-art {
+    min-height: 280px;
+  }
+
+  .hero h1 {
+    font-size: clamp(28px, 5vw, 42px);
+  }
+
+  .main {
+    padding: clamp(12px, 2vw, 18px);
+  }
+}
+
+/* Mobile breakpoint (480px) */
+@media (max-width: 480px) {
+  :root {
+    font-size: 15px;
+  }
+
+  .top-header {
+    height: 64px;
+    gap: 8px;
+    padding: 0 12px;
+  }
+
+  .brand-button {
+    font-size: 16px;
+  }
+
+  .brand-button span {
+    width: 36px;
+    height: 36px;
+  }
+
+  .header-actions {
+    gap: 6px;
+  }
+
+  .btn {
+    min-height: 40px;
+    padding: 0 12px;
+    font-size: 14px;
+  }
+
+  .card {
+    padding: clamp(12px, 3vw, 18px);
+  }
+
+  .page-title {
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .page-title h1 {
+    font-size: clamp(22px, 4vw, 32px);
+  }
+
+  .hero {
+    padding: clamp(16px, 3vw, 24px);
+    border-radius: 20px;
+  }
+
+  .hero h1 {
+    font-size: clamp(24px, 5vw, 32px);
+    margin: 12px 0;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  .hero-art {
+    min-height: 200px;
+  }
+
+  .pill-3d {
+    width: 160px;
+    height: 80px;
+  }
+
+  .medical-card {
+    padding: 12px;
+    font-size: 12px;
+    right: 10px;
+    bottom: 10px;
+  }
+
+  .ad-card {
+    min-height: 140px;
+    padding: 16px;
+  }
+
+  .ad-card strong {
+    font-size: 18px;
+  }
+
+  .trust-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .product-card {
+    border-radius: 12px;
+  }
+
+  .product-card .product-image {
+    border-radius: 12px 12px 0 0;
+  }
+
+  .category-strip,
+  .chips {
+    gap: 8px;
+    scroll-padding: 12px;
+  }
+
+  .category-strip button,
+  .chips button {
+    min-height: 36px;
+    padding: 0 12px;
+    font-size: 13px;
+  }
+
+  .hero-search,
+  .search-line {
+    min-height: 44px;
+    padding: 0 12px;
+    border-radius: 10px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  textarea,
+  select {
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    /* Prevents zoom on iOS */
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: more) {
+  :root {
+    --muted: #4a5250;
+    --line: #c5d4cb;
+  }
+
+  .btn {
+    border-width: 2px;
+  }
+}
+
+/* Dark mode preference (prepared for future dark mode) */
+@media (prefers-color-scheme: dark) {
+  /* Placeholder for future dark mode */
+}
+
+/* Print styles */
+@media print {
+
+  .top-header,
+  .sidebar,
+  .menu-button,
+  button,
+  .header-actions {
+    display: none;
+  }
+
+  .main {
+    padding: 0;
+  }
+
+  body {
+    background: white;
+  }
+}

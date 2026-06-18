@@ -1,0 +1,28 @@
+app = "dorixona"
+primary_region = "iad"
+
+[build]
+dockerfile = "backend/Dockerfile"
+
+[deploy]
+release_command = "cd backend && pnpm install --prod --frozen-lockfile && pnpm exec prisma migrate deploy"
+healthcheck_path = "/server/health"
+
+[[services]]
+internal_port = 3004
+protocol = "tcp"
+
+  [[services.ports]]
+  handlers = ["http"]
+  port = 80
+
+  [[services.ports]]
+  handlers = ["tls", "http"]
+  port = 443
+
+  [services.concurrency]
+  hard_limit = 25
+  soft_limit = 20
+
+[env]
+NODE_ENV = "production"
