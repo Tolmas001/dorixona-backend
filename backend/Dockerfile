@@ -9,7 +9,7 @@ COPY package.json pnpm-lock.yaml ./
 # Install pnpm
 RUN npm install -g pnpm
 
-# Install dependencies
+# Install all dependencies for build
 RUN pnpm install --frozen-lockfile
 
 # Copy source code
@@ -32,12 +32,15 @@ RUN npm install -g pnpm
 # Copy package files
 COPY package.json pnpm-lock.yaml ./
 
-# Install all dependencies (including devDependencies for prisma)
+# Install all dependencies (prisma CLI needed for prisma generate)
 RUN pnpm install --frozen-lockfile
 
 # Copy built application from builder
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/prisma ./prisma
+
+# Generate Prisma client in production stage
+RUN pnpm exec prisma generate
 
 # Expose port
 EXPOSE 3004
