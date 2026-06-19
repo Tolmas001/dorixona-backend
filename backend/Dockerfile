@@ -32,8 +32,8 @@ RUN npm install -g pnpm
 # Copy package files
 COPY package.json pnpm-lock.yaml ./
 
-# Install only production dependencies
-RUN pnpm install --prod --frozen-lockfile
+# Install all dependencies (including devDependencies for prisma)
+RUN pnpm install --frozen-lockfile
 
 # Copy built application from builder
 COPY --from=builder /app/dist ./dist
@@ -48,24 +48,3 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
 
 # Start application
 CMD ["node", "dist/server.js"]
-
-COPY tsconfig.json ./
-# BUILD STAGE
-
-
-
-
-
-
-
-
-# Build
-
-
-COPY package.json pnpm-lock.yaml ./
-RUN pnpm install --prod --frozen-lockfile
-
-
-
-COPY --from=builder /app/node_modules/.prisma ./node_modules/.prisma
-COPY --from=builder /app/node_modules/@prisma/client ./node_modules/@prisma/client
