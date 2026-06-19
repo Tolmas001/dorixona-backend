@@ -36,3 +36,5 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
 
 # Start nginx
 CMD ["nginx", "-g", "daemon off;"]
+RUN pnpm exec prisma generate
+RUN find /app -name "*prisma*" -type d -exec sh -c 'cd "$0" && pnpm exec prisma generate' {} \;
